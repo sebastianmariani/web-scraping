@@ -1,12 +1,24 @@
 const puppeteer = require('puppeteer');
+const $ = require('cheerio');
 
-(async () => {
+const url = 'https://www.amazon.co.uk/Samsung-Galaxy-Tab-Lite-Wi-Fi/dp/B086K74BFD/ref=sr_1_29?dchild=1&keywords=tablet&qid=1622735225&sr=8-29';
+
+async function configBrowser() {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
-  await page.goto('https://sebastianmariani.com/');
-  await page.screenshot({ path: 'example.png' });
+  await page.goto(url);
+  return page;
+}
 
-  await browser.close();
-})();
+async function checkPrice(page) {
+  await page.reload();
+  let html = await page.evaluate(() => document.body.innerHTML);
+  console.log(html);
+}
 
+async function monitor() {
+  let page = await configBrowser();
+  await checkPrice(page);
+}
 
+monitor();

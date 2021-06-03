@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/sebastianmariani/web-scraping#readme",
   "dependencies": {
+    "cheerio": "*",
     "puppeteer": "^10.0.0"
   }
 }
