@@ -1,6 +1,7 @@
-const puppeteer = require('puppeteer');
+const puppeteer = require("puppeteer");
 
-const url = 'https://www.amazon.co.uk/Samsung-Galaxy-Tab-Lite-Wi-Fi/dp/B086K74BFD/ref=sr_1_29?dchild=1&keywords=tablet&qid=1622735225&sr=8-29';
+const url =
+  "https://www.amazon.co.uk/Samsung-Galaxy-Tab-Lite-Wi-Fi/dp/B086K74BFD/ref=sr_1_29?dchild=1&keywords=tablet&qid=1622735225&sr=8-29";
 
 async function configBrowser() {
   const browser = await puppeteer.launch();
@@ -13,11 +14,11 @@ async function checkPrice(page) {
   await page.reload();
   let html = await page.evaluate(() => document.body.innerHTML);
 
-  const textContent = await page.evaluate(() => document.querySelector('#priceblock_ourprice').textContent);
-  const innerText = await page.evaluate(() => document.querySelector('#priceblock_ourprice').innerText);
+  const price = await page.evaluate(
+    () => document.querySelector("#priceblock_ourprice").textContent
+  );
 
-  console.log(textContent);
-  console.log(innerText); 
+  console.log(price);
 }
 
 async function monitor() {
