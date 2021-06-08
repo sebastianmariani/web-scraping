@@ -1,7 +1,7 @@
 const puppeteer = require("puppeteer");
 
 const url =
-  "https://www.amazon.co.uk/Samsung-Galaxy-Tab-Lite-Wi-Fi/dp/B086K74BFD/ref=sr_1_29?dchild=1&keywords=tablet&qid=1622735225&sr=8-29";
+  "https://www.amazon.co.uk/Raspberry-Pi-ARM-Cortex-A72-Bluetooth-Micro-HDMI/dp/B07TC2BK1X/ref=sr_1_4?dchild=1&keywords=raspberry+pi&qid=1623167718&sr=8-4";
 
 async function configBrowser() {
   const browser = await puppeteer.launch();
@@ -14,11 +14,15 @@ async function checkPrice(page) {
   await page.reload();
   let html = await page.evaluate(() => document.body.innerHTML);
 
-  const price = await page.evaluate(
+  const poundPrice = await page.evaluate(
     () => document.querySelector("#priceblock_ourprice").textContent
   );
 
-  console.log(price);
+  let currentPrice = Number(poundPrice.replace(/[^0-9.-]+/g, ""));
+
+  if (currentPrice < 60) {
+    console.log("Buy it!");
+  }
 }
 
 async function monitor() {
