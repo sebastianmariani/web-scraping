@@ -21,7 +21,9 @@ async function checkPrice(page) {
   let currentPrice = Number(poundPrice.replace(/[^0-9.-]+/g, ""));
 
   if (currentPrice < 60) {
-    console.log("Buy it!");
+    console.log("Buy it!", currentPrice);
+  } else {
+    console.log("Don't buy it", currentPrice);
   }
 }
 
