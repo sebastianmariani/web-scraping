@@ -1,7 +1,7 @@
 const puppeteer = require("puppeteer");
 
 const url =
-  "https://www.amazon.co.uk/Raspberry-Pi-ARM-Cortex-A72-Bluetooth-Micro-HDMI/dp/B0899VXM8F/ref=sr_1_3?dchild=1&keywords=raspberry%2Bpi%2B4&qid=1629218773&sr=8-3&th=1";
+  "https://www.amazon.co.uk/gp/product/B00NPYDJ6U?pf_rd_r=3JJDZ5X1KKSTTHQMNEJG&pf_rd_p=6f2bfee9-92a9-4ec5-94b5-ed7bbe78d734&pd_rd_r=0fca5c77-4d69-4613-98ad-6a9f423bc62c&pd_rd_w=ta4U6&pd_rd_wg=7rGlb&ref_=pd_gw_unk";
 
 async function configBrowser() {
   const browser = await puppeteer.launch();
